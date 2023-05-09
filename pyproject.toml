@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "play-with-gh-action"
+version = "0.1.0"
+description = ""
+authors = ["Samuel Bancal <Samuel.Bancal@epfl.ch>"]
+readme = "README.md"
+packages = [{include = "play_with_gh_action"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+requests = "^2.30.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
