@@ -5,6 +5,13 @@ runs:
   steps:
   - name: Checkout code
     uses: actions/checkout@v3
+  
+  - name: Checkout play with gh action
+    uses: actions/checkout@v3
+    with:
+      repository: sbancal/play-with-gh-action
+      ref: main
+      path: play-with-gh-action
 
   - name: Set up Python 3.10
     uses: actions/setup-python@v4
@@ -16,7 +23,7 @@ runs:
     uses: actions/cache@v3
     with:
       path: ~/.cache/pip
-      key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+      key: ${{ runner.os }}-pip-${{ hashFiles('play-with-gh-action/requirements.txt') }}
       restore-keys: |
         ${{ runner.os }}-pip-
 
@@ -25,8 +32,8 @@ runs:
     if: steps.cache.outputs.cache-hit != 'true'
     run: |
       python -m pip install --upgrade pip
-      pip install -r requirements.txt
+      pip install -r play-with-gh-action/requirements.txt
 
   - name: Run Python script main.py
     shell: bash
-    run: python main.py
+    run: python play-with-gh-action/main.py
