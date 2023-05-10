@@ -1,5 +1,9 @@
 name: "Play with GitHub Actions"
 description: "Make some tests"
+inputs:
+  ENAC_IT4R_CD_environment:
+    description: "Deployment environment"
+    required: true
 runs:
   using: "composite"
   steps:
@@ -33,4 +37,4 @@ runs:
 
   - name: Run Python script main.py
     shell: bash
-    run: python play-with-gh-action/main.py
+    run: python play-with-gh-action/main.py --env ${{inputs.ENAC_IT4R_CD_environment}}
