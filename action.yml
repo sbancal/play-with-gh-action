@@ -3,9 +3,6 @@ description: "Make some tests"
 runs:
   using: "composite"
   steps:
-  - name: Checkout code
-    uses: actions/checkout@v3
-  
   - name: Checkout play with gh action
     uses: actions/checkout@v3
     with:
